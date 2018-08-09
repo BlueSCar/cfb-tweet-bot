@@ -8,6 +8,10 @@
 
     twitter.onStream((event) => {
         if (!event.in_reply_to_screen_name && userIds.includes(event.user.id_str)) {
+            if (event.retweeted_status && userIds.includes(event.retweeted_status.user.id_str)){
+                return;
+            }
+            
             discord.sendMessage(channelId, `https://twitter.com/statuses/${event.id_str}`);
         }
     }, (err) => {

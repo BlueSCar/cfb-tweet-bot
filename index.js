@@ -7,7 +7,7 @@
     const discord = require('./lib/discord')();
 
     twitter.onStream((event) => {
-        if (userIds.includes(event.user.id_str)) {
+        if (!event.in_reply_to_screen_name && userIds.includes(event.user.id_str)) {
             discord.sendMessage(channelId, `https://twitter.com/statuses/${event.id}`);
         }
     }, (err) => {

@@ -8,7 +8,7 @@
 
     twitter.onStream((event) => {
         if (!event.in_reply_to_screen_name && userIds.includes(event.user.id_str)) {
-            discord.sendMessage(channelId, `https://twitter.com/statuses/${event.id}`);
+            discord.sendMessage(channelId, `https://twitter.com/statuses/${event.id_str}`);
         }
     }, (err) => {
         console.error(err);

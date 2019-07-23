@@ -12,7 +12,7 @@
                 return;
             }
             
-            discord.sendMessage(channelId, `https://twitter.com/statuses/${event.id_str}`);
+            discord.sendMessage(channelId, `https://twitter.com/${event.user.screen_name}/status/${event.id_str}`);
         }
     }, (err) => {
         console.error(err);
